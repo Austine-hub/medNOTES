@@ -1,7 +1,7 @@
 /* CSS Custom Properties for better maintainability */
 :root {
   --container-max-width: 1400px;
-  --container-padding: 40px 20px;
+  --container-padding: 15px 20px;
   --header-offset: 160px;
   --header-offset-mobile: 120px;
   

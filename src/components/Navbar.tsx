@@ -178,7 +178,7 @@ const Navbar: React.FC = () => {
         </li>
 
         {/* Static links */}
-        <li><a href="#">Payment Methods</a></li>
+        <li><a href="#">About Us</a></li>
         <li><a href="#">Psychiatric Evaluation</a></li>
 
         {/* Useful Links */}
