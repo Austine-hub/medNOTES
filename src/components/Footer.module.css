@@ -1,0 +1,260 @@
+/* Footer container */
+.footer {
+  background: linear-gradient(135deg, #1e5aa8 0%, #2870c2 100%);
+  color: white;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Main footer content */
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  padding: 50px 40px 40px;
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 25px 0;
+  color: white;
+  letter-spacing: -0.2px;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLink {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/* Separator */
+.separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 40px;
+}
+
+/* Bottom section */
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 40px 50px;
+  gap: 40px;
+}
+
+/* App section */
+.appSection {
+  flex: 0 0 auto;
+}
+
+.appTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: white;
+  letter-spacing: -0.2px;
+}
+
+.appButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.appButton {
+  display: block;
+  height: 45px;
+  transition: opacity 0.2s ease;
+}
+
+.appButton:hover {
+  opacity: 0.8;
+}
+
+.appButton img {
+  height: 100%;
+  width: auto;
+  border-radius: 8px;
+}
+
+/* Right section */
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Social icons */
+.socialIcons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.socialIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.socialIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.socialIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Legal text section */
+.legalText {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: right;
+}
+
+.avatar {
+  flex: 0 0 auto;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.copyright {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+  line-height: 1.3;
+}
+
+.regulation {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .footerContent {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px 30px;
+  }
+  
+  .bottomSection {
+    padding: 30px 30px 40px;
+  }
+  
+  .separator {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 30px 20px;
+  }
+  
+  .bottomSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  
+  .rightSection {
+    align-items: center;
+  }
+  
+  .legalText {
+    text-align: center;
+  }
+  
+  .separator {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 25px 15px;
+  }
+  
+  .bottomSection {
+    padding: 25px 15px;
+  }
+  
+  .appButtons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .columnTitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .footerLink {
+    font-size: 15px;
+  }
+  
+  .separator {
+    margin: 0 15px;
+  }
+}

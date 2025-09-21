@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import UserInfo from './components/UserInfo'
 import AccountCards from './components/AccountCards'
+import Footer from './components/Footer'
 function App() {
   
   return (
@@ -12,11 +13,10 @@ function App() {
         <Navbar/>
         <UserInfo/>
         <main style={{ marginTop: "40px" }}>
-            <AccountCards />
-          
+        <AccountCards />          
         </main>
-
         <AccountCards/>
+        <Footer/>
 
     </>
   )
