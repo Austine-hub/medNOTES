@@ -1,0 +1,105 @@
+/* Navbar.module.css */
+
+.navbar {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 500;
+  color: #2c3e50;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Dropdown menu */
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.dropdownMenu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownMenu li a:hover {
+  background-color: #f1f3f5;
+}
+
+/* Show dropdown when open */
+.open {
+  display: block;
+}
+
+/* Nested dropdowns */
+.nested {
+  left: 100%;
+  top: 0;
+  margin-left: 0.25rem;
+}
+
+.dropdown:hover > .dropdownMenu,
+.dropdown:focus-within > .dropdownMenu {
+  display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .dropdownMenu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding-left: 1rem;
+  }
+
+  .dropdownMenu li a {
+    padding: 0.25rem 0;
+  }
+}
