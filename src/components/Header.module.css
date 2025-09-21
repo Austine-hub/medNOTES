@@ -1,0 +1,75 @@
+.headerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 0 1rem;
+}
+
+.kraLogo,
+.itaxLogo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.kraLogo {
+  margin-right: 1rem;
+}
+
+.itaxLogo {
+  margin-left: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .headerBar {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    text-align: center;
+    order: 1;
+  }
+  
+  .kraLogo,
+  .itaxLogo {
+    height: 40px;
+    margin: 0;
+  }
+  
+  .kraLogo {
+    order: 0;
+  }
+  
+  .itaxLogo {
+    order: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .kraLogo,
+  .itaxLogo {
+    height: 35px;
+  }
+}
