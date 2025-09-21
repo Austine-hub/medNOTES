@@ -1,87 +1,69 @@
-# 🚀 Mobile-Responsive Web App  
+# React + TypeScript + Vite
 
-A modern, responsive web application built with **HTML, CSS, and JavaScript**.  
-Deployed on Vercel: [Live Demo](https://your-vercel-app-url.vercel.app)  
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![App Screenshot](screenshot.png) *<!-- Add a screenshot later -->*  
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🚀 Project Status
+## Expanding the ESLint configuration
 
-✅ HTML structure complete  
-✅ CSS styling with mobile responsiveness implemented  
-✅ JavaScript functionality added  
-✅ Code pushed to GitHub repository  
-🟡 Deployment on [Vercel](https://vercel.com) in progress
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## **📌 Features** 
-A clean, mobile-first responsive web application built using **HTML**, **CSS**, and **JavaScript**. This project is currently under development and hosted on GitHub, with deployment via **Vercel**.
----
-- Fully **mobile-responsive** design (works on all devices).  
-- Clean, intuitive UI with interactive elements.  
-- [Add other key features, e.g., "Dark mode toggle", "Form validation"]  
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
----
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## 📁 Project Structure
- project-folder/
-├── index.html
-├── file5.html
-├── file5.css
-├── file5.js
-├── photos/
-│ └── favicon.ico
-└── README.md
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
----
-
-## 💻 Technologies Used
-
-- **HTML5** – Structure & layout
-- **CSS3** – Styling & responsive design
-- **JavaScript (Vanilla)** – Interactive features
-- **Git & GitHub** – Version control & collaboration
-- **Vercel** – Deployment
-
----
-
-## 🛠️ Setup & Development Commands
-
-### ✅ Git Initialization and Push
-
-```bash
-# Initialize git repo
-git init
-
-# Track all files
-git add .
-
-# First commit
-git commit -m "Initial commit"
-
-# Add remote repository
-git remote add origin https://github.com/your-username/your-repo-name.git
-
-# Push to GitHub
-git push -u origin main
-
-
-## **🛠️ Setup & Installation**  
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
-   git clone https://github.com/Austine-hub/Project1.git
-
-
-
-
-
-
-
-
-
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
