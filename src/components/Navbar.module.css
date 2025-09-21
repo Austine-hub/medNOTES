@@ -1,10 +1,14 @@
 /* Navbar.module.css */
-
 .navbar {
   background-color: #f8f9fa;
   border-bottom: 2px solid #e9ecef;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 1rem;
+
+  /* Sticky below header */
+  position: sticky;
+  top: 80px; /* adjust based on header height */
+  z-index: 1200; /* lower than header so header stays on top */
 }
 
 .navList {
@@ -51,7 +55,7 @@
   list-style: none;
   padding: 0.5rem 0;
   margin: 0;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .dropdownMenu li a {

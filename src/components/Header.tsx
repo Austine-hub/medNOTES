@@ -1,9 +1,5 @@
-import React from 'react';
-import styles from './Header.module.css';
-
-// ✅ Import images instead of using relative paths in props
-import leftLogo from '../assets/images/pic1.png';
-import rightLogo from '../assets/images/pic2.png';
+import React from "react";
+import styles from "./Header.module.css";
 
 interface HeaderProps {
   title?: string;
@@ -14,28 +10,27 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  title = 'Welcome to Your Personalized Medical Studies',
-  leftLogoSrc = leftLogo,
-  leftLogoAlt = 'Kenya Revenue Authority Logo',
-  rightLogoSrc = rightLogo,
-  rightLogoAlt = 'iTax Logo',
+  title = "Welcome to Your Personalized Medical Studies",
+  leftLogoSrc = "/images/pic1.png",
+  leftLogoAlt = "Kenya Revenue Authority Logo",
+  rightLogoSrc = "/images/pic2.png",
+  rightLogoAlt = "iTax Logo",
 }) => {
   return (
-    <header className={styles.headerBar} aria-label="Main site header">
+    <header className={styles.headerBar}>
       <img
         src={leftLogoSrc}
         alt={leftLogoAlt}
-        className={styles.kraLogo}
+        className={styles.leftLogo}
       />
       <h1 className={styles.title}>{title}</h1>
       <img
         src={rightLogoSrc}
         alt={rightLogoAlt}
-        className={styles.itaxLogo}
+        className={styles.rightLogo}
       />
     </header>
   );
 };
 
 export default Header;
-

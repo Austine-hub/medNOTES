@@ -1,0 +1,47 @@
+.userInfo {
+  background-color: #222; /* var(--bg-dark) from original CSS */
+  color: #fff; /* var(--text-light) */
+  font-size: 0.85rem;
+  padding: 6px 32px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.userInfo i {
+  margin-right: 8px;
+  color: #fbc02d; /* var(--highlight-color) */
+}
+
+.dashboardTitle {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 24px 0 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tablet + Mobile responsiveness */
+@media (max-width: 768px) {
+  .userInfo {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboardTitle {
+    font-size: 1rem;
+    margin: 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .userInfo {
+    font-size: 0.75rem;
+  }
+
+  .dashboardTitle {
+    font-size: 0.95rem;
+  }
+}
