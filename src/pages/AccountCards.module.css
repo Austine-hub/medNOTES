@@ -28,7 +28,7 @@
 
 .container {
   width: 100%;
-  max-width: var(--container-max-width);
+  max-width: 1100px;
   margin: 0 auto;
   padding: var(--container-padding);
   background-color: var(--background-color);
@@ -38,6 +38,7 @@
   container-type: inline-size;
   container-name: main-container;
 }
+
 
 .cardsGrid {
   display: grid;

@@ -1,23 +1,33 @@
 .userInfo {
-  background-color: #222; /* var(--bg-dark) from original CSS */
+  background-color: #222; /* var(--bg-dark) */
   color: #fff; /* var(--text-light) */
   font-size: 0.85rem;
-  padding: 6px 32px;
+  padding: 0px 52px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #333;
 
   /* Sticky at top */
   position: sticky;
-  top: 60px; /* height of your navbar */
-  z-index: 1150; /*lower than navbar */
+  top: 50px; /* height of your navbar */
+  z-index: 1200;
   width: 100%;
+
+  /* ✅ Prevent overflow */
+  flex-wrap: wrap;          /* allow breaking into new lines */
+  word-break: break-word;   /* break long words if needed */
+  overflow: hidden;         /* no horizontal scroll */
+  box-sizing: border-box;   /* padding counts inside width */
 }
 
+.userInfo span {
+  flex: 1;                  /* span takes available space */
+  min-width: 0;             /* allow shrinking */
+}
 
 .userInfo i {
   margin-right: 8px;
-  color: #fbc02d; /* var(--highlight-color) */
+  color: #fbc02d; /* highlight */
 }
 
 .dashboardTitle {
@@ -33,7 +43,7 @@
   .userInfo {
     padding: 10px 16px;
     font-size: 0.8rem;
-    flex-direction: column;
+    flex-direction: column;   /* stack vertically */
     align-items: flex-start;
   }
 

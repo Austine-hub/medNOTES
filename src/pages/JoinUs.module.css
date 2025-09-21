@@ -1,0 +1,170 @@
+.getInvolvedSection {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+  min-height: 600px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e88e5;
+  margin-bottom: 60px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-width: 350px;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.imageContainer {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: 30px 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e88e5;
+  margin-bottom: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  flex: 1;
+}
+
+.exploreButton {
+  background: none;
+  border: none;
+  color: #e53935;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.exploreButton:hover {
+  color: #c62828;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.exploreButton:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .getInvolvedSection {
+    padding: 60px 0;
+  }
+  
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .cardContent {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+  
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+}
