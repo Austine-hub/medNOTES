@@ -1,63 +1,50 @@
+// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Global layout components
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import UserInfo from "./components/UserInfo";
+// Layouts
+import MainLayout from "./layouts/MainLayout";
 
-// Page components (route-driven)
+// Pages
 import HomePage from "./pages/HomePage";
 import AboutUs from "./pages/AboutUs";
 import JoinUs from "./pages/JoinUs";
 import AccountCards from "./pages/AccountCards";
+import Pharmacology from "./pages/Pharmacology";
+import { pharmaDiagrams } from "./data/pharmaDiagrams";
+import NotFound from "./pages/NotFound"; // ✅ Add this import
 
-// 🔒 Reserved for future homepage hero/banner
-// import Hero from "./components/Hero";
-
-// ✅ App Component
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Global layout: always visible */}
-        <Header />
-        <Navbar />
-        <UserInfo />
-        
-        {/* Dynamic routed content */}
-        <main className="flex-grow">
-          <Routes>
-            {/* Primary homepage route */}
-            <Route path="/" element={<HomePage />} /> 
+      <Routes>
+        {/* Routes wrapped in MainLayout */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/online-pharmacy" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/join" element={<JoinUs />} />
+          <Route path="/accounts" element={<AccountCards />} />
 
-            {/* Alternate homepage route */}
-            <Route path="/online-pharmacy" element={<HomePage />} /> 
+          {/* ✅ Pharmacology page works now */}
+          <Route path="/pharmco" element={<Pharmacology />} />
+          <Route path="/pharmco" element={<Pharmacology diagrams={pharmaDiagrams} />} />
+              {/* ✅ fallback route */}
+          <Route path="*" element={<NotFound />} />
 
-            {/* Dedicated routes */}
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/join" element={<JoinUs />} />
-            <Route path="/accounts" element={<AccountCards />} />
 
-            {/* 🔒 Future routes
-            <Route path="/prescriptions" element={<Prescriptions />} />
-            <Route path="/guidelines" element={<PrescriptionGuidelines />} />
-            <Route path="/stores" element={<StoreLocatorPage />} />
-            <Route path="/team" element={<TeamSection />} />
-            <Route path="/services" element={<OurServices />} />
-            <Route path="/products" element={<ProductGrid />} />
-            <Route path="/login" element={<LoginPage />} />
-            */}
-          </Routes>
-        </main>
+          
+        {/* Example: routes outside MainLayout */}
+        {/* <Route path="/login" element={<LoginPage />} /> */}
+          </Route>
+        {/* Example of a route outside MainLayout (e.g. login, dashboard) */}
+        {/* <Route path="/login" element={<LoginPage />} /> */}
 
-        {/* Global footer */}
-        <Footer />
-      </div>
+        {/* 404 Fallback */}
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
     </Router>
   );
 }
 
 export default App;
-
 

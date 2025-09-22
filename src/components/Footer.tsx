@@ -11,60 +11,60 @@ const Footer: React.FC = () => {
           <div className={styles.footerColumn}>
             <h3 className={styles.columnTitle}>Personal</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Money Market Fund</a></li>
-              <li><a href="#" className={styles.footerLink}>Health Insurance Covers</a></li>
-              <li><a href="#" className={styles.footerLink}>Britam Motor Insurance</a></li>
-              <li><a href="#" className={styles.footerLink}>Travel Insurance</a></li>
-              <li><a href="#" className={styles.footerLink}>Individual Pension Plans</a></li>
+              <li><a href="#" className={styles.footerLink}>Books</a></li>
+              <li><a href="#" className={styles.footerLink}>USMLE Notes</a></li>
+              <li><a href="#" className={styles.footerLink}>JKUAT Past Papers</a></li>
+              <li><a href="#" className={styles.footerLink}>MCQ Books</a></li>
+              <li><a href="#" className={styles.footerLink}>OSCES Books</a></li>
             </ul>
           </div>
 
           {/* Business Section */}
           <div className={styles.footerColumn}>
-            <h3 className={styles.columnTitle}>Business</h3>
+            <h3 className={styles.columnTitle}>Short Notes</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Unit Trust Funds</a></li>
-              <li><a href="#" className={styles.footerLink}>Work Injury Benefits Act</a></li>
-              <li><a href="#" className={styles.footerLink}>School Student Personal Accident</a></li>
-              <li><a href="#" className={styles.footerLink}>Group Life Cover</a></li>
-              <li><a href="#" className={styles.footerLink}>Marine Insurance</a></li>
+              <li><a href="#" className={styles.footerLink}>Paeds</a></li>
+              <li><a href="#" className={styles.footerLink}>Psychiatry</a></li>
+              <li><a href="#" className={styles.footerLink}>Surgery</a></li>
+              <li><a href="#" className={styles.footerLink}>IMED</a></li>
+              <li><a href="#" className={styles.footerLink}>OBGYN</a></li>
             </ul>
           </div>
 
           {/* About Section */}
           <div className={styles.footerColumn}>
-            <h3 className={styles.columnTitle}>About</h3>
+            <h3 className={styles.columnTitle}>More</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Leadership</a></li>
-              <li><a href="#" className={styles.footerLink}>Our Story</a></li>
-              <li><a href="#" className={styles.footerLink}>Careers</a></li>
-              <li><a href="#" className={styles.footerLink}>Britam Foundation</a></li>
-              <li><a href="#" className={styles.footerLink}>Open Tenders</a></li>
+              <li><a href="#" className={styles.footerLink}>Flow Diagrams</a></li>
+              <li><a href="#" className={styles.footerLink}>History Taking</a></li>
+              <li><a href="#" className={styles.footerLink}>Visual Mnemonics</a></li>
+              <li><a href="#" className={styles.footerLink}>Harrison Corner</a></li>
+              <li><a href="#" className={styles.footerLink}>Snippets</a></li>
             </ul>
           </div>
 
           {/* Help Center Section */}
           <div className={styles.footerColumn}>
-            <h3 className={styles.columnTitle}>Help Center</h3>
+            <h3 className={styles.columnTitle}>Blog Section</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Locate a Hospital</a></li>
-              <li><a href="#" className={styles.footerLink}>File a Claim</a></li>
-              <li><a href="#" className={styles.footerLink}>Motor Rescue Services</a></li>
-              <li><a href="#" className={styles.footerLink}>Forms and Downloads</a></li>
+              <li><a href="#" className={styles.footerLink}>OBGYN</a></li>
+              <li><a href="#" className={styles.footerLink}>Orthopaedics</a></li>
+              <li><a href="#" className={styles.footerLink}>Dermatology</a></li>
+              <li><a href="#" className={styles.footerLink}>Medicine</a></li>
               <li><a href="#" className={styles.footerLink}>Frequently Asked Questions</a></li>
             </ul>
           </div>
 
           {/* Legal Section */}
           <div className={styles.footerColumn}>
-            <h3 className={styles.columnTitle}>Legal</h3>
+            <h3 className={styles.columnTitle}>Extras</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Privacy Policy</a></li>
-              <li><a href="#" className={styles.footerLink}>Terms And Conditions</a></li>
-              <li><a href="#" className={styles.footerLink}>Cookie Policy</a></li>
-              <li><a href="#" className={styles.footerLink}>Customer Service Charter</a></li>
-              <li><a href="#" className={styles.footerLink}>Board Charter</a></li>
-              <li><a href="#" className={styles.footerLink}>Stakeholder Policy</a></li>
+              <li><a href="#" className={styles.footerLink}>Forensics and Toxicology</a></li>
+              <li><a href="#" className={styles.footerLink}>Dentistry</a></li>
+              <li><a href="#" className={styles.footerLink}>Anasethesia</a></li>
+              <li><a href="#" className={styles.footerLink}>Physiology REview</a></li>
+              <li><a href="#" className={styles.footerLink}>Radiology</a></li>
+              <li><a href="#" className={styles.footerLink}>ENT</a></li>
             </ul>
           </div>
         </div>
@@ -76,14 +76,14 @@ const Footer: React.FC = () => {
         <div className={styles.bottomSection}>
           {/* App download section */}
           <div className={styles.appSection}>
-            <h3 className={styles.appTitle}>Download MyBritam App</h3>
+            <h3 className={styles.appTitle}>Download MyMedSchool App</h3>
             <div className={styles.appButtons}>
               <a href="#" className={styles.appButton}>
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQ1IiB2aWV3Qm94PSIwIDAgMTUwIDQ1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQ1IiByeD0iNSIgZmlsbD0iIzAwMDAwMCIvPgo8cGF0aCBkPSJNMzAuNSAyMi41QzMwLjUgMjcuNzEgMjYuNzEgMzIgMjEuNSAzMkMxNi4yOSAzMiAxMi41IDI3LjcxIDEyLjUgMjIuNUMxMi41IDE3LjI5IDE2LjI5IDEzIDIxLjUgMTNDMjYuNzEgMTMgMzAuNSAxNy4yOSAzMC41IDIyLjVaIiBmaWxsPSJ3aGl0ZSIvPgo8dGV4dCB4PSI0NSIgeT0iMTYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSJ3aGl0ZSI+RG93bmxvYWQgb24gdGhlPC90ZXh0Pgo8dGV4dCB4PSI0NSIgeT0iMzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5BcHAgU3RvcmU8L3RleHQ+Cjwvc3ZnPgo=" alt="Download on the App Store" />
               </a>
               <a href="#" className={styles.appButton}>
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQ1IiB2aWV3Qm94PSIwIDAgMTUwIDQ1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQ1IiByeD0iNSIgZmlsbD0iIzAwMDAwMCIvPgo8cGF0aCBkPSJNMjUgMTBMMzAgMTVMMjUgMjBMMjAgMTVMMjUgMTBaIiBmaWxsPSIjRkY2NTAwIi8+CjxwYXRoIGQ9Ik0yNSAyMEwzMCAyNUwyNSAzMEwyMCAyNUwyNSAyMFoiIGZpbGw9IiNGRkM0MDAiLz4KPHA="
- alt="Get it on Google Play" />
+                alt="Get it on Google Play" />
               </a>
             </div>
           </div>
@@ -120,8 +120,8 @@ const Footer: React.FC = () => {
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGRkY4REMiLz4KPGNpcmNsZSBjeD0iMjAiIGN5PSIxNiIgcj0iNiIgZmlsbD0iIzMzMzMzMyIvPgo8cGF0aCBkPSJNMTAgMzJjMC02IDQtMTAgMTAtMTBzMTAgNCAxMCAxMCIgZmlsbD0iIzMzMzMzMyIvPgo8L3N2Zz4K" alt="Avatar" />
               </div>
               <div className={styles.textContent}>
-                <p className={styles.copyright}>© 2025 Britam. All Rights Reserved.</p>
-                <p className={styles.regulation}>Regulated by the Insurance Regulatory Authority</p>
+                <p className={styles.copyright}>© 2025 MedNotes. All Rights Reserved.</p>
+                <p className={styles.regulation}>Regulated by Ajanja</p>
               </div>
             </div>
           </div>

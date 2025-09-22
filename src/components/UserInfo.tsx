@@ -1,4 +1,5 @@
 import React from "react";
+import { User, Search, Settings } from "lucide-react";
 import styles from "./UserInfo.module.css";
 
 interface UserInfoProps {
@@ -7,6 +8,7 @@ interface UserInfoProps {
   lastLogin: string;
   reportMonth?: string;
   reportYear?: number;
+  className?: string;
 }
 
 const UserInfo: React.FC<UserInfoProps> = ({
@@ -14,23 +16,37 @@ const UserInfo: React.FC<UserInfoProps> = ({
   userId,
   lastLogin,
   reportMonth = "July",
-  reportYear = 2025,
+  reportYear = new Date().getFullYear(),
+  className = "",
 }) => {
   return (
-    <>
-      <section className={styles.userInfo}>
-        <span>
-          <i className="fa fa-user" aria-hidden="true"></i>{" "}
-          Welcome {username} ({userId}) - Last Login: {lastLogin}
+    <section
+      className={`${styles.userInfo} ${className}`}
+      role="banner"
+      aria-label="User information and report header"
+    >
+      {/* User details */}
+      <div className={styles.userDetails}>
+        <User size={16} className={styles.userIcon} aria-hidden="true" />
+        <span className={styles.welcomeText}>
+          Welcome <strong>{username}</strong> ({userId}) • Last Login:{" "}
+          {lastLogin}
         </span>
+      </div>
 
-                  <div className={styles.brand}>
-              <h2 className={styles.dashboardTitle}>
-                      Your Health Report for {reportMonth} {reportYear}
-              </h2> 
-          </div>
-      </section>
-    </>
+      {/* Report title 
+      <div className={styles.reportHeader}>
+        <h1 className={styles.dashboardTitle}>
+          Your Health Report for {reportMonth} {reportYear}
+        </h1>
+      </div>*/}
+
+      {/* Utility icons 
+      <div className={styles.utilityIcons}>
+        <Search size={20} />
+        <Settings size={20} />
+      </div> */}
+    </section>
   );
 };
 

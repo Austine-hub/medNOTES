@@ -22,12 +22,12 @@ interface HeaderProps {
 const DEFAULT_PROPS = {
   title: "Welcome to Your Personalized Medical Studies",
   leftLogo: {
-    src: "/images/pic1.png",
-    alt: "Kenya Revenue Authority Logo",
+    src: "/src/assets/photos/smile2.png",
+    alt: "Med Student",
   },
   rightLogo: {
-    src: "/images/pic2.png", 
-    alt: "iTax Logo",
+    src: "/src/assets/photos/smile1.png", 
+    alt: "MedStudent",
   },
 } as const;
 

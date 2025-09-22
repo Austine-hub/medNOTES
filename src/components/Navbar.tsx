@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({
     setOpenDropdown(null);
   }, [location.pathname]);
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns when clicking outside or pressing Escape
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
@@ -50,26 +50,22 @@ const Navbar: React.FC<NavbarProps> = ({
     setIsMobileMenuOpen((prev) => !prev);
   }, []);
 
-  const toggleDropdown = useCallback((dropdownId: string) => {
-    setOpenDropdown((prev) => (prev === dropdownId ? null : dropdownId));
-  }, []);
+  const isActive = useCallback(
+    (path: string) => location.pathname === path,
+    [location.pathname]
+  );
 
-  const isActive = useCallback((path: string) => {
-    return location.pathname === path;
-  }, [location.pathname]);
-
-  // Navigation items configuration for easier maintenance
+  // 🔹 Centralized nav config — aligned with App.tsx
   const navigationItems = [
     { path: "/", label: "Home", id: "home" },
     { path: "/accounts", label: "Accounts", id: "accounts" },
-    { path: "/payment-methods", label: "Payment Methods", id: "payment-methods" },
-    { path: "/psychiatry", label: "Psychiatric Evaluation", id: "psych" },
+    { path: "/pharmco", label: "Pharmacology", id: "pharmco" },
     { path: "/about", label: "About Us", id: "about" },
     { path: "/join", label: "Join Us", id: "join" },
   ] as const;
 
   return (
-    <nav 
+    <nav
       ref={navbarRef}
       className={styles.navbar}
       role="navigation"
@@ -85,27 +81,23 @@ const Navbar: React.FC<NavbarProps> = ({
         type="button"
       >
         {[1, 2, 3].map((_, idx) => (
-          <span
-            key={idx}
-            className={styles.bar}
-            aria-hidden="true"
-          />
+          <span key={idx} className={styles.bar} aria-hidden="true" />
         ))}
       </button>
 
       {/* Navigation links */}
       <ul
         id="main-navigation"
-        className={`${styles.navList} ${
-          isMobileMenuOpen ? styles.navListOpen : ""
-        }`}
+        className={`${styles.navList} ${isMobileMenuOpen ? styles.navListOpen : ""}`}
         role="menubar"
       >
         {navigationItems.map(({ path, label, id }) => (
           <li key={id} role="none">
-            <Link 
+            <Link
               to={path}
-              className={`${styles.navLink} ${isActive(path) ? styles.navLinkActive : ''}`}
+              className={`${styles.navLink} ${
+                isActive(path) ? styles.navLinkActive : ""
+              }`}
               id={id}
               role="menuitem"
               aria-current={isActive(path) ? "page" : undefined}
@@ -116,15 +108,6 @@ const Navbar: React.FC<NavbarProps> = ({
           </li>
         ))}
       </ul>
-
-      {/* Optional: Brand/Logo section - uncomment if needed */}
-      {/*
-      <div className={styles.brand}>
-        <Link to="/" aria-label="Go to homepage">
-          Your Brand
-        </Link>
-      </div>
-      */}
     </nav>
   );
 };

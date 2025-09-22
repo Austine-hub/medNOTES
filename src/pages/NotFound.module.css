@@ -1,0 +1,43 @@
+/* src/pages/NotFound.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 3.75rem; /* text-6xl */
+  font-weight: bold;
+  color: #dc2626; /* red-600 */
+  margin: 0;
+}
+
+.subheading {
+  margin-top: 1rem;
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 0.5rem;
+  color: #4b5563; /* gray-600 */
+}
+
+.homeLink {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.homeLink:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
