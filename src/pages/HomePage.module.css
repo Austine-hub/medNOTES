@@ -2,60 +2,57 @@
 
 /* CSS Custom Properties for maintainability */
 :root {
-  --primary-gradient: linear-gradient(135deg, #d65ba7 0%, #c44b96 100%);
+  --primary-gradient: linear-gradient(135deg, #5a3091 0%, #53085a 100%);
   --text-primary: #ffffff;
   --text-secondary: #5a5a7a;
   --card-bg: #ffffff;
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
-  --border-radius: 20px;
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 8px 28px rgba(0, 0, 0, 0.15);
+  --border-radius: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', sans-serif;
-  --grid-gap: 30px;
-  --card-padding: 40px 20px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", sans-serif;
+  --grid-gap: 24px;
+  --card-padding: 24px 16px;
 }
 
 /* Main container */
 .container {
   background: var(--primary-gradient);
-  padding: 40px 20px;
+  padding: 32px 20px;
   min-height: 100vh;
   font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Header section */
+/* Header */
 .header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .headerTitle {
   color: var(--text-primary);
-  font-size: clamp(22px, 4vw, 32px);
+  font-size: clamp(22px, 3.5vw, 30px);
   font-weight: 600;
   margin: 0;
   letter-spacing: 0.5px;
   line-height: 1.2;
 }
 
-/* Main content area */
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 /* Grid layout */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* ✅ Exactly 3 columns on desktop */
   gap: var(--grid-gap);
-  max-width: 900px;
   width: 100%;
+  max-width: 1100px; /* ✅ Slightly wider to fit 3 columns nicely */
+  margin: 0 auto;
 }
 
-/* Category cards */
+/* Category card */
 .categoryCard {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -64,7 +61,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 180px;
+  min-height: 150px;
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--card-shadow);
@@ -72,32 +69,26 @@
   overflow: hidden;
 }
 
-/* Card interactions */
 .categoryCard:hover,
 .categoryCard:focus {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--card-shadow-hover);
-  outline: none;
 }
 
 .categoryCard:focus-visible {
   outline: 2px solid var(--text-primary);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .categoryCard:active {
-  transform: translateY(-2px);
-  transition: var(--transition);
+  transform: translateY(-1px);
 }
 
-/* Card states for better UX */
+/* Gradient hover effect */
 .categoryCard::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(135deg, rgba(214, 91, 167, 0.05), rgba(196, 75, 150, 0.05));
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -107,42 +98,35 @@
   opacity: 1;
 }
 
-/* Icon container */
-.iconContainer {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
+/* Image container */
+.imageContainer {
+  width: 100%;
+  max-width: 140px;
+  margin-bottom: 12px;
 }
 
-/* Icon styling */
-.icon {
-  width: 48px;
-  height: 48px;
-  color: var(--text-secondary);
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+.categoryImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-.categoryCard:hover .icon {
-  color: #d65ba7;
-  transform: scale(1.05);
+.categoryCard:hover .categoryImage {
+  transform: scale(1.03);
 }
 
 /* Category title */
 .categoryTitle {
   color: var(--text-secondary);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  margin: 0;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  line-height: 1.3;
-  position: relative;
-  z-index: 1;
+  margin: 0;
   transition: color 0.3s ease;
 }
 
@@ -151,92 +135,39 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
-  .container {
-    padding: 30px 15px;
-  }
-  
+@media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    max-width: 600px;
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 per row on tablets */
+    max-width: 800px;
   }
-  
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr; /* ✅ 1 per row on mobile */
+    max-width: 360px;
+    gap: 16px;
+  }
+
   .categoryCard {
-    min-height: 160px;
-    padding: 30px 15px;
+    min-height: 130px;
+    padding: 20px 14px;
   }
-  
-  .icon {
-    width: 42px;
-    height: 42px;
-  }
-  
+
   .categoryTitle {
     font-size: 14px;
   }
 }
 
-@media (max-width: 480px) {
-  .container {
-    padding: 20px 10px;
-  }
-  
-  .header {
-    margin-bottom: 30px;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr;
-    max-width: 350px;
-    gap: 16px;
-  }
-  
-  .categoryCard {
-    min-height: 140px;
-    padding: 25px 15px;
-  }
-  
-  .icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 16px;
-  }
-  
-  .categoryTitle {
-    font-size: 13px;
-    letter-spacing: 0.8px;
-  }
-}
-
-/* Accessibility improvements */
+/* Accessibility: reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .categoryCard,
-  .icon,
+  .categoryImage,
   .categoryTitle {
     transition: none;
   }
-  
+
   .categoryCard:hover {
     transform: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .categoryCard {
-    border: 2px solid var(--text-secondary);
-  }
-  
-  .categoryCard:hover,
-  .categoryCard:focus {
-    border-color: var(--text-primary);
-  }
-}
-
-/* Dark mode support (if needed) */
-@media (prefers-color-scheme: dark) {
-  .categoryCard {
-    background: rgba(255, 255, 255, 0.95);
   }
 }
