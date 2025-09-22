@@ -13,14 +13,15 @@ const MainLayout = () => {
       <header className={styles.headerWrapper}>
         <Header />
       </header>
+      <nav className={styles.navbarWrapper}>
+        <Navbar />
+      </nav>
 
       <div className={styles.userInfoWrapper}>
         <UserInfo />
       </div>
 
-      <nav className={styles.navbarWrapper}>
-        <Navbar />
-      </nav>
+
 
       {/* Dynamic routed content */}
       <main className={styles.main} role="main">
