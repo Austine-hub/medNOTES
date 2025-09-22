@@ -1,36 +1,104 @@
 import React from "react";
 import styles from "./Header.module.css";
 
+// Enhanced interface with better typing
 interface HeaderProps {
   title?: string;
-  leftLogoSrc?: string;
-  leftLogoAlt?: string;
-  rightLogoSrc?: string;
-  rightLogoAlt?: string;
+  leftLogo?: {
+    src: string;
+    alt: string;
+    onClick?: () => void;
+  };
+  rightLogo?: {
+    src: string;
+    alt: string;
+    onClick?: () => void;
+  };
+  className?: string;
+  'aria-label'?: string;
 }
 
+// Default props as constants for better performance
+const DEFAULT_PROPS = {
+  title: "Welcome to Your Personalized Medical Studies",
+  leftLogo: {
+    src: "/images/pic1.png",
+    alt: "Kenya Revenue Authority Logo",
+  },
+  rightLogo: {
+    src: "/images/pic2.png", 
+    alt: "iTax Logo",
+  },
+} as const;
+
 const Header: React.FC<HeaderProps> = ({
-  title = "Welcome to Your Personalized Medical Studies",
-  leftLogoSrc = "/images/pic1.png",
-  leftLogoAlt = "Kenya Revenue Authority Logo",
-  rightLogoSrc = "/images/pic2.png",
-  rightLogoAlt = "iTax Logo",
+  title = DEFAULT_PROPS.title,
+  leftLogo = DEFAULT_PROPS.leftLogo,
+  rightLogo = DEFAULT_PROPS.rightLogo,
+  className,
+  'aria-label': ariaLabel = "Site header",
 }) => {
+  // Memoized logo renderer to avoid prop drilling
+  const renderLogo = React.useCallback((
+    logo: NonNullable<HeaderProps['leftLogo']>,
+    additionalClassName?: string
+  ) => {
+    const handleClick = logo.onClick;
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+      if ((event.key === 'Enter' || event.key === ' ') && handleClick) {
+        event.preventDefault();
+        handleClick();
+      }
+    };
+
+    const logoElement = (
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        className={`${styles.logo} ${additionalClassName || ''}`}
+        loading="eager" // Header logos should load immediately
+        decoding="async" // Non-blocking decode
+        // Add dimensions if known for better CLS
+        // width={120} height={48}
+      />
+    );
+
+    // Wrap in button if interactive
+    if (handleClick) {
+      return (
+        <button
+          type="button"
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          className={styles.logoButton}
+          aria-label={`Navigate using ${logo.alt}`}
+        >
+          {logoElement}
+        </button>
+      );
+    }
+
+    return logoElement;
+  }, []);
+
   return (
-    <header className={styles.headerBar}>
-      <img
-        src={leftLogoSrc}
-        alt={leftLogoAlt}
-        className={styles.leftLogo}
-      />
-      <h1 className={styles.title}>{title}</h1>
-      <img
-        src={rightLogoSrc}
-        alt={rightLogoAlt}
-        className={styles.rightLogo}
-      />
+    <header 
+      className={`${styles.headerBar} ${className || ''}`}
+      aria-label={ariaLabel}
+      role="banner" // Semantic landmark
+    >
+      {leftLogo && renderLogo(leftLogo)}
+      
+      <h1 className={styles.title}>
+        {title}
+      </h1>
+      
+      {rightLogo && renderLogo(rightLogo)}
     </header>
   );
 };
 
-export default Header;
+// Export with display name for better debugging
+Header.displayName = 'Header';
+
+export default React.memo(Header);

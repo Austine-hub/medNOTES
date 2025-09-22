@@ -23,6 +23,12 @@ const UserInfo: React.FC<UserInfoProps> = ({
           <i className="fa fa-user" aria-hidden="true"></i>{" "}
           Welcome {username} ({userId}) - Last Login: {lastLogin}
         </span>
+
+                  <div className={styles.brand}>
+              <h2 className={styles.dashboardTitle}>
+                      Your Health Report for {reportMonth} {reportYear}
+              </h2> 
+          </div>
       </section>
     </>
   );

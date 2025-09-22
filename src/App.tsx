@@ -22,9 +22,9 @@ function App() {
       <div className="flex flex-col min-h-screen">
         {/* Global layout: always visible */}
         <Header />
-        <UserInfo />
         <Navbar />
-
+        <UserInfo />
+        
         {/* Dynamic routed content */}
         <main className="flex-grow">
           <Routes>

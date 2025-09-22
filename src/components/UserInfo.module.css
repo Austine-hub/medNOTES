@@ -1,5 +1,5 @@
 .userInfo {
-  background-color: #222; /* var(--bg-dark) */
+   background: linear-gradient(135deg, #1e5aa8 0%, #2870c2 100%);
   color: #fff; /* var(--text-light) */
   font-size: 0.85rem;
   padding: 0px 52px;
@@ -10,7 +10,7 @@
   /* Sticky at top */
   position: sticky;
   top: 50px; /* height of your navbar */
-  z-index: 1200;
+  z-index: 1308.5;
   width: 100%;
 
   /* ✅ Prevent overflow */
