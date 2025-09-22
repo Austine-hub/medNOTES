@@ -2,7 +2,7 @@
 
 /* CSS Custom Properties for maintainability */
 :root {
-  --primary-gradient: linear-gradient(135deg, #5a3091 0%, #53085a 100%);
+  --primary-gradient: linear-gradient(135deg, #3d35af 0%, #53085a 100%);
   --text-primary: #ffffff;
   --text-secondary: #5a5a7a;
   --card-bg: #ffffff;

@@ -9,7 +9,7 @@
   --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   --logo-height: 3rem;
   --title-font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-  
+
   /* Layout */
   display: flex;
   align-items: center;
@@ -131,3 +131,4 @@
     font-size: clamp(0.875rem, 4vw, 1.125rem);
   }
 }
+
