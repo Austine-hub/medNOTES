@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({
   // 🔹 Centralized nav config — aligned with App.tsx
   const navigationItems = [
     { path: "/", label: "Home", id: "home" },
-    { path: "/accounts", label: "Accounts", id: "accounts" },
+    { path: "/accounts", label: "Resources", id: "accounts" },
     { path: "/pharmco", label: "Pharmacology", id: "pharmco" },
     { path: "/about", label: "About Us", id: "about" },
     { path: "/join", label: "Join Us", id: "join" },

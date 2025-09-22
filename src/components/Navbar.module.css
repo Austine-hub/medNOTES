@@ -8,7 +8,7 @@
   /* Sticky below header */
   position: sticky;
   top: 0; /* ✅ stick right under header */
-  z-index: 1308; /* stays below header */
+  /*z-index: 1000; /* stays below header */
   display: flex;
   align-items: center;
   justify-content: center;

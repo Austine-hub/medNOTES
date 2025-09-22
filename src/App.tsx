@@ -11,13 +11,13 @@ import JoinUs from "./pages/JoinUs";
 import AccountCards from "./pages/AccountCards";
 import Pharmacology from "./pages/Pharmacology";
 import { pharmaDiagrams } from "./data/pharmaDiagrams";
-import NotFound from "./pages/NotFound"; // ✅ Add this import
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Routes wrapped in MainLayout */}
+        {/* ✅ Routes wrapped in MainLayout */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/online-pharmacy" element={<HomePage />} />
@@ -25,22 +25,18 @@ function App() {
           <Route path="/join" element={<JoinUs />} />
           <Route path="/accounts" element={<AccountCards />} />
 
-          {/* ✅ Pharmacology page works now */}
-          <Route path="/pharmco" element={<Pharmacology />} />
-          <Route path="/pharmco" element={<Pharmacology diagrams={pharmaDiagrams} />} />
-              {/* ✅ fallback route */}
+          {/* ✅ Pass diagrams as props */}
+          <Route
+            path="/pharmco"
+            element={<Pharmacology diagrams={pharmaDiagrams} />}
+          />
+
+          {/* ✅ 404 inside layout (if you want header/footer on 404) */}
           <Route path="*" element={<NotFound />} />
+        </Route>
 
-
-          
-        {/* Example: routes outside MainLayout */}
+        {/* Example: routes outside MainLayout (e.g. login page) */}
         {/* <Route path="/login" element={<LoginPage />} /> */}
-          </Route>
-        {/* Example of a route outside MainLayout (e.g. login, dashboard) */}
-        {/* <Route path="/login" element={<LoginPage />} /> */}
-
-        {/* 404 Fallback */}
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Router>
   );

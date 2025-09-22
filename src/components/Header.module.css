@@ -2,7 +2,7 @@
 .headerBar {
   /* CSS Custom Properties for theming */
   --header-padding-y: 0.75rem;
-  --header-padding-x: 1rem;
+  /*--header-padding-x: 1rem;*/
   --header-bg-primary: #1e5aa8;
   --header-bg-secondary: #2870c2;
   --header-text-color: #ffffff;
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  /*gap: 1rem;*/
   
   /* Spacing using logical properties */
   padding-block: var(--header-padding-y);

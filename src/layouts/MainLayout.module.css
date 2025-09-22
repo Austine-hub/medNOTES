@@ -1,0 +1,48 @@
+.layout {
+  /*display: flex;*/
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9fafb; /* subtle background */
+}
+
+/* Sticky Header */
+.headerWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Sticky User Info below header */
+.userInfoWrapper {
+  position: sticky;
+  top: 60px; /* adjust to header height */
+  z-index: 950;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Sticky Navbar below User Info */
+.navbarWrapper {
+  position: sticky;
+  top: 100px; /* adjust depending on header + userInfo height */
+  z-index: 900;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Routed content area */
+.main {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Footer always at bottom */
+.footerWrapper {
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 1rem;
+}

@@ -1,5 +1,14 @@
-import React from 'react';
-import styles from './AccountCards.module.css';
+// src/components/AccountCards.tsx
+import React from "react";
+import { motion } from "framer-motion";
+import styles from "./AccountCards.module.css";
+
+// ✅ Import local images (ensures correct bundling + cache-busting in production)
+import orthoImg from "../assets/med-images/Appley-ortho.jpg";
+import surgeryImg from "../assets/med-images/SRB-surgery.jpg";
+import medicineImg from "../assets/med-images/harrison-imed.png";
+import obgynImg from "../assets/med-images/ten-teachers.jpg";
+import paedsImg from "../assets/med-images/paeds-protocal.png";
 
 interface AccountCardProps {
   title: string;
@@ -8,64 +17,80 @@ interface AccountCardProps {
   imageAlt: string;
 }
 
-const AccountCard: React.FC<AccountCardProps> = ({ title, description, imageUrl, imageAlt }) => (
-  <div className={styles.card}>
+const AccountCard: React.FC<AccountCardProps> = ({
+  title,
+  description,
+  imageUrl,
+  imageAlt,
+}) => (
+  <motion.article
+    className={styles.card}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.4, ease: "easeOut" }}
+  >
     <div className={styles.imageContainer}>
       <img src={imageUrl} alt={imageAlt} className={styles.cardImage} />
     </div>
     <div className={styles.cardContent}>
       <h3 className={styles.cardTitle}>{title}</h3>
       <p className={styles.cardDescription}>{description}</p>
-      <button className={styles.findOutMoreBtn}>
-        Find out more
-        <span className={styles.arrow}>▶</span>
-      </button>
+      <a href="#" className={styles.findOutMoreBtn}>
+        Find out more <span className={styles.arrow}>▶</span>
+      </a>
     </div>
-  </div>
+  </motion.article>
 );
 
 const AccountCards: React.FC = () => {
-  const accountData = [
+  // ✅ Use imported images here (no hardcoded paths)
+  const accountData: AccountCardProps[] = [
     {
-      title: "Current Account",
-      description: "This is a convenient and flexible medium for a range of transactions. With this account you are free to make deposits, receive money, make payments, make withdrawals and set up standing orders....",
-      imageUrl: "/api/placeholder/300/200",
-      imageAlt: "Couple reviewing documents together"
+      title: "Orthopaedics",
+      description:
+        "A complete beginner guide to undergraduate orthopaedics. Read, memorize, practice and master the essentials.",
+      imageUrl: orthoImg,
+      imageAlt: "Appleys Orthopaedics",
     },
     {
-      title: "Equity Ordinary Account",
-      description: "Equity Ordinary Account is your perfect medium for personal deposits, daily business transactions and remittances....",
-      imageUrl: "/api/placeholder/300/200",
-      imageAlt: "Man using mobile phone"
+      title: "General Surgery",
+      description:
+        "Perfect for you — practice daily questions and mindmaps, and become an expert surgeon-in-training.",
+      imageUrl: surgeryImg,
+      imageAlt: "SRB Surgery",
     },
     {
-      title: "School Fees Collection Account",
-      description: "We have partnered with various higher learning institutions across the country to ease the process of paying tuition, and thus allow you to access your education more easily....",
-      imageUrl: "/api/placeholder/300/200",
-      imageAlt: "Student in classroom"
+      title: "Medicine",
+      description:
+        "Comprehensive principles and guides for medical students — from basics to advanced topics.",
+      imageUrl: medicineImg,
+      imageAlt: "Harrison Manual of Medicine",
     },
     {
-      title: "Investments A/C",
-      description: "The CDSC Account is an electronic account that holds your shares and manages the process of transferring shares that are traded in the NSE (Nairobi Securities Exchange)....",
-      imageUrl: "/api/placeholder/300/200",
-      imageAlt: "Couple with laptop and documents"
-    }
+      title: "OBGYN",
+      description:
+        "A complete undergraduate guide to Obstetrics and Gynaecology practice — step by step.",
+      imageUrl: obgynImg,
+      imageAlt: "Obstetrics by Ten Teachers",
+    },
+    {
+      title: "Paediatrics",
+      description:
+        "An undergraduate approach to Paediatrics and Child Health — learn it, apply it, master it.",
+      imageUrl: paedsImg,
+      imageAlt: "Kenya Paediatrics Protocol",
+    },
   ];
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.cardsGrid}>
         {accountData.map((account, index) => (
-          <AccountCard
-            key={index}
-            title={account.title}
-            description={account.description}
-            imageUrl={account.imageUrl}
-            imageAlt={account.imageAlt}
-          />
+          <AccountCard key={index} {...account} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
