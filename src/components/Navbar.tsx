@@ -3,15 +3,17 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
+  // Kept for future extension, but not currently used
   reportMonth?: string;
   reportYear?: number;
 }
 
-const Navbar: React.FC<NavbarProps> = ({
-  reportMonth = "July",
-  reportYear = 2025,
-}) => {
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+const Navbar: React.FC<NavbarProps> = (
+  // 🔹 Commented out unused props (safe to re-enable if needed later)
+  // { reportMonth = "July", reportYear = 2025 }
+) => {
+  // 🔹 Commented out openDropdown since not in use yet
+  // const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navbarRef = useRef<HTMLElement>(null);
   const location = useLocation();
@@ -19,20 +21,20 @@ const Navbar: React.FC<NavbarProps> = ({
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setOpenDropdown(null);
+    // setOpenDropdown(null);
   }, [location.pathname]);
 
   // Close dropdowns when clicking outside or pressing Escape
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
+        // setOpenDropdown(null);
       }
     };
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpenDropdown(null);
+        // setOpenDropdown(null);
         setIsMobileMenuOpen(false);
       }
     };

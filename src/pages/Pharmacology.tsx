@@ -2,7 +2,11 @@
 import React, { useState, useMemo } from "react";
 import styles from "./Pharmacology.module.css";
 import { Search, Download, X } from "lucide-react";
-import { pharmaDiagrams, Diagram } from "../data/pharmaDiagrams";
+
+// ✅ FIX: Import Diagram as type-only
+import { pharmaDiagrams } from "../data/pharmaDiagrams";
+import type { Diagram } from "../data/pharmaDiagrams";
+
 
 interface PharmacologyProps {
   diagrams?: Diagram[];

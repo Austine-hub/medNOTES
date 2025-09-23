@@ -13,15 +13,19 @@ const MainLayout = () => {
       <header className={styles.headerWrapper}>
         <Header />
       </header>
+
       <nav className={styles.navbarWrapper}>
         <Navbar />
       </nav>
 
       <div className={styles.userInfoWrapper}>
-        <UserInfo />
+        {/* ✅ Pass safe placeholder props so TS stops complaining */}
+        <UserInfo
+          username="Guest"
+          userId="0000"
+          lastLogin={new Date().toLocaleString()} // human-readable date
+        />
       </div>
-
-
 
       {/* Dynamic routed content */}
       <main className={styles.main} role="main">
@@ -36,4 +40,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-

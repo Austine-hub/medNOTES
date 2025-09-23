@@ -1,5 +1,5 @@
 import React from "react";
-import { User, Search, Settings } from "lucide-react";
+import { User } from "lucide-react";
 import styles from "./UserInfo.module.css";
 
 interface UserInfoProps {
@@ -15,8 +15,8 @@ const UserInfo: React.FC<UserInfoProps> = ({
   username,
   userId,
   lastLogin,
-  reportMonth = "July",
-  reportYear = new Date().getFullYear(),
+  reportMonth = "July", // ✅ Now used
+  reportYear = new Date().getFullYear(), // ✅ Now used
   className = "",
 }) => {
   return (
@@ -31,21 +31,11 @@ const UserInfo: React.FC<UserInfoProps> = ({
         <span className={styles.welcomeText}>
           Welcome <strong>{username}</strong> ({userId}) • Last Login:{" "}
           {lastLogin}
+          <h2 className={styles.dashboardTitle}>
+          {reportMonth} {reportYear}
+        </h2>
         </span>
-      </div>
-
-      {/* Report title 
-      <div className={styles.reportHeader}>
-        <h1 className={styles.dashboardTitle}>
-          Your Health Report for {reportMonth} {reportYear}
-        </h1>
-      </div>*/}
-
-      {/* Utility icons 
-      <div className={styles.utilityIcons}>
-        <Search size={20} />
-        <Settings size={20} />
-      </div> */}
+      </div>  
     </section>
   );
 };
