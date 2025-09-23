@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({
     { path: "/", label: "Home", id: "home" },
     { path: "/accounts", label: "Resources", id: "accounts" },
     { path: "/pharmco", label: "Pharmacology", id: "pharmco" },
-    { path: "/about", label: "About Us", id: "about" },
+    { path: "/about", label: "Get Involved", id: "about" },
     { path: "/join", label: "Join Us", id: "join" },
   ] as const;
 

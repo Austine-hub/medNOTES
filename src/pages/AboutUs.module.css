@@ -1,230 +1,136 @@
+/* Modern Blue-themed AboutUs Component Styles */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
-  background-color: #fdfdfd;
+  padding: 3rem 1.25rem;
+  background: linear-gradient(135deg, #e8f4fd 0%, #d1e9fc 50%, #b8ddf9 100%);
   min-height: 100vh;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
-  font-size: 2.8rem;
-  font-weight: 300;
-  color: #2c2c2c;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 200;
+  color: #1e40af;
   margin: 0;
-  letter-spacing: 2px;
+  letter-spacing: 0.125em;
   text-transform: uppercase;
-  animation: fadeInDown 1s ease both;
+  animation: fadeInDown 1s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
 }
 
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, #a8c8ec 0%, #7db5e8 100%);
-  transform: translateX(-50%);
-}
-
-.timelineItem {
-  position: relative;
-  margin-bottom: 120px;
-  display: flex;
-  align-items: flex-start;
-}
-
-.timelineItem:nth-child(odd) {
-  flex-direction: row;
-}
-
-.timelineItem:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.year {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #a8c8ec 0%, #7db5e8 100%);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  z-index: 2;
-  box-shadow: 0 4px 15px rgba(125, 181, 232, 0.3);
-  top: -10px;
-  text-transform: uppercase;
-}
-
-.content {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  width: 100%;
-  padding: 40px 0 20px 0;
-}
-
-.timelineItem:nth-child(odd) .content {
-  justify-content: flex-end;
-  padding-right: calc(50% + 30px);
-}
-
-.timelineItem:nth-child(even) .content {
-  justify-content: flex-start;
-  padding-left: calc(50% + 30px);
-  flex-direction: row-reverse;
-}
-
-.textContent {
-  flex: 1;
-  max-width: 280px;
-}
-
-.textContent p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #444;
-  margin: 0 0 15px 0;
-}
-
-.textContent p:last-child {
-  margin-bottom: 0;
-}
-
-.imageWrapper {
-  flex-shrink: 0;
-}
-
-.polaroidImage {
-  background: white;
-  padding: 15px 15px 25px 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  transform: rotate(-2deg);
-  transition: transform 0.4s ease;
-  border-radius: 3px;
-}
-
-.timelineItem:nth-child(even) .polaroidImage {
-  transform: rotate(2deg);
-}
-
-.polaroidImage:hover {
-  transform: rotate(0deg) scale(1.05);
-}
-
-.polaroidImage img {
-  width: 180px;
-  height: 135px;
-  object-fit: cover;
-  display: block;
-  border-radius: 2px;
-  transition: transform 0.4s ease;
-}
-
-.polaroidImage:hover img {
-  transform: scale(1.08);
-}
-
-.timelineDot {
-  position: absolute;
-  left: 50%;
-  top: 30px;
-  width: 12px;
-  height: 12px;
-  background: #7db5e8;
-  border: 3px solid white;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  box-shadow: 0 0 0 3px #a8c8ec;
-}
-
+/* Services Section */
 .servicesSection {
-  margin-top: 120px;
+  margin-top: 1rem;
+  margin-bottom: 7.5rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .servicesTitle {
-  font-size: 2.4rem;
-  font-weight: 300;
-  color: #2c2c2c;
-  margin-bottom: 60px;
-  letter-spacing: 1px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 200;
+  color: #1e40af;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  animation: fadeInUp 1s ease both;
+  text-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
 }
 
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .serviceCard {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
 }
 
 .serviceCard:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.5rem) scale(1.02);
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25);
+  background: rgba(255, 255, 255, 1);
 }
 
 .serviceIcon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #a8c8ec 0%, #7db5e8 100%);
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  margin: 0 auto 20px auto;
-  color: white;
+  font-size: 1.5rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
 .serviceCard h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 15px;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  letter-spacing: 0.025em;
 }
 
 .serviceCard p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #666;
+  color: #4b5563;
   margin: 0;
+  font-weight: 400;
 }
 
-/* ========================
-   Animation Helpers
-   ======================== */
+/* Animation Classes */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(2.5rem);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity, transform;
 }
 
@@ -236,18 +142,7 @@
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(-2.5rem);
   }
   to {
     opacity: 1;
@@ -258,61 +153,23 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: 20px 15px;
+    padding: 1rem 1rem;
   }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
-  .timeline::before {
-    left: 30px;
-  }
-  
-  .timelineItem {
-    flex-direction: column !important;
-    padding-left: 60px;
-    margin-bottom: 80px;
-  }
-  
-  .year {
-    left: 30px;
-    transform: none;
-    top: 0;
-  }
-  
-  .content {
-    flex-direction: column !important;
-    padding: 20px 0 0 0 !important;
-    gap: 20px;
-  }
-  
-  .textContent {
-    max-width: none;
-  }
-  
-  .timelineDot {
-    left: 30px;
-    transform: none;
-  }
-  
-  .polaroidImage {
-    transform: rotate(-1deg) !important;
-  }
-  
+
   .servicesGrid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 1.5rem;
+  }
+
+  .serviceCard {
+    padding: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .polaroidImage img {
-    width: 150px;
-    height: 112px;
-  }
-  
-  .serviceCard {
-    padding: 30px 20px;
+  .serviceIcon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
   }
 }
