@@ -9,7 +9,7 @@
 
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   color: var(--text-light);
-  font-size: 0.85rem;
+  font-size: .8rem;
   padding: 16px 52px;
   display: flex;
   flex-direction: column;
@@ -46,6 +46,7 @@
   flex: 1;
   min-width: 0;
   line-height: 1.4;
+  font-size: smaller;
 }
 
 .welcomeText strong {
@@ -57,7 +58,7 @@
 }
 
 .dashboardTitle {
-  font-size: 1.1rem;
+  font-size: o.45rem;
   font-weight: 700;
   margin: 0;
   line-height: 1.3;
@@ -100,6 +101,9 @@
 
   .dashboardTitle {
     font-size: 1rem;
+  }
+  h4{
+    font-size: 0.4;
   }
 }
 

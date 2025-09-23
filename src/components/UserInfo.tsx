@@ -31,9 +31,9 @@ const UserInfo: React.FC<UserInfoProps> = ({
         <span className={styles.welcomeText}>
           Welcome <strong>{username}</strong> ({userId}) • Last Login:{" "}
           {lastLogin}
-          <h2 className={styles.dashboardTitle}>
+         <h4 className={styles.dashboardTitle}>
           {reportMonth} {reportYear}
-        </h2>
+        </h4>
         </span>
       </div>  
     </section>
