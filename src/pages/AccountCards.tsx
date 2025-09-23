@@ -1,6 +1,7 @@
 // src/components/AccountCards.tsx
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // ✅ Import Link
 import styles from "./AccountCards.module.css";
 
 // ✅ Import local images (ensures correct bundling + cache-busting in production)
@@ -15,6 +16,7 @@ interface AccountCardProps {
   description: string;
   imageUrl: string;
   imageAlt: string;
+  linkUrl?: string; // ✅ Optional link property
 }
 
 const AccountCard: React.FC<AccountCardProps> = ({
@@ -22,6 +24,7 @@ const AccountCard: React.FC<AccountCardProps> = ({
   description,
   imageUrl,
   imageAlt,
+  linkUrl, // ✅ Receive link
 }) => (
   <motion.article
     className={styles.card}
@@ -36,9 +39,15 @@ const AccountCard: React.FC<AccountCardProps> = ({
     <div className={styles.cardContent}>
       <h3 className={styles.cardTitle}>{title}</h3>
       <p className={styles.cardDescription}>{description}</p>
-      <a href="#" className={styles.findOutMoreBtn}>
-        Find out more <span className={styles.arrow}>▶</span>
-      </a>
+      {linkUrl ? (
+        <Link to={linkUrl} className={styles.findOutMoreBtn}>
+          Find out more <span className={styles.arrow}>▶</span>
+        </Link>
+      ) : (
+        <span className={styles.findOutMoreBtnDisabled}>
+          Find out more <span className={styles.arrow}>▶</span>
+        </span>
+      )}
     </div>
   </motion.article>
 );
@@ -52,6 +61,7 @@ const AccountCards: React.FC = () => {
         "A complete beginner guide to undergraduate orthopaedics. Read, memorize, practice and master the essentials.",
       imageUrl: orthoImg,
       imageAlt: "Appleys Orthopaedics",
+      linkUrl: "/specialties/Orthopaedics", // ✅ React Router link
     },
     {
       title: "General Surgery",
@@ -59,6 +69,7 @@ const AccountCards: React.FC = () => {
         "Perfect for you — practice daily questions and mindmaps, and become an expert surgeon-in-training.",
       imageUrl: surgeryImg,
       imageAlt: "SRB Surgery",
+      linkUrl: "/specialties/Surgery",
     },
     {
       title: "Medicine",
@@ -66,6 +77,7 @@ const AccountCards: React.FC = () => {
         "Comprehensive principles and guides for medical students — from basics to advanced topics.",
       imageUrl: medicineImg,
       imageAlt: "Harrison Manual of Medicine",
+      linkUrl: "/specialties/Medicine",
     },
     {
       title: "OBGYN",
@@ -73,6 +85,7 @@ const AccountCards: React.FC = () => {
         "A complete undergraduate guide to Obstetrics and Gynaecology practice — step by step.",
       imageUrl: obgynImg,
       imageAlt: "Obstetrics by Ten Teachers",
+      linkUrl: "/specialties/OBGYN",
     },
     {
       title: "Paediatrics",
@@ -80,6 +93,7 @@ const AccountCards: React.FC = () => {
         "An undergraduate approach to Paediatrics and Child Health — learn it, apply it, master it.",
       imageUrl: paedsImg,
       imageAlt: "Kenya Paediatrics Protocol",
+      linkUrl: "/specialties/Paediatrics",
     },
   ];
 
@@ -95,3 +109,4 @@ const AccountCards: React.FC = () => {
 };
 
 export default AccountCards;
+

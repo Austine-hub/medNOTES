@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './JoinUs.module.css';
+import styles from './Blog.module.css';
 
-const GetInvolvedWithUs: React.FC = () => {
+const Blog: React.FC = () => {
   return (
     <section className={styles.getInvolvedSection}
-    id="Join-Us">        
+    id="blog">        
       <div className={styles.container}>
         <h2 className={styles.title}>Get Involved With Us</h2>
         
@@ -77,4 +77,4 @@ const GetInvolvedWithUs: React.FC = () => {
   );
 };
 
-export default GetInvolvedWithUs;
+export default Blog;

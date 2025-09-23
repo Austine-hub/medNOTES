@@ -78,10 +78,11 @@
 
 .logo {
   /* Base logo styles */
-  height: var(--logo-height);
+  height: 85px;
   width: auto;
   object-fit: contain;
-  
+  padding: 1.5rem;
+  border-radius: 75%;
   /* Performance */
   will-change: auto;
   
