@@ -6,7 +6,7 @@ export interface Diagram {
   link: string;
 }
 
-// ✅ Define titles in the order you want
+// ✅ Titles in desired order (will match automatically with images)
 const diagramTitles = [
   "Mechanism of Diabetic Drugs",
   "Antiepileptic Drugs 1",
@@ -21,26 +21,17 @@ const diagramTitles = [
 ];
 
 // ✅ Use Vite's glob to automatically import all PNGs
-const images = import.meta.glob("../assets/photos/*.png", { eager: true, import: "default" });
+const images = import.meta.glob("../assets/photos/*.png", { eager: true, import: "default" }) as Record<string, string>;
 
-// ✅ Match images to titles manually (order-sensitive)
-const imageFiles = [
-  images["../assets/photos/diabetic-drugs.png"],
-  images["../assets/photos/antiepileptic-drugs-1.png"],
-  images["../assets/photos/nsaids.png"],
-  images["../assets/photos/drugs-for-tb.png"],
-  images["../assets/photos/antiepileptic-drugs-2.png"],
-  images["../assets/photos/antiepileptic-drugs-3.png"],
-  images["../assets/photos/drugs-for-parkinsons.png"],
-  images["../assets/photos/hypertensive-drugs-1.png"],
-  images["../assets/photos/hypertensive-drugs-2.png"],
-  images["../assets/photos/drugs-for-alzheimer.png"],
-];
+// ✅ Sort images alphabetically by filename
+const sortedImageFiles = Object.entries(images)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([_, img]) => img);
 
-// ✅ Base list without IDs
-const baseDiagrams: Omit<Diagram, "id">[] = diagramTitles.map((title, index) => ({
-  title,
-  image: imageFiles[index],
+// ✅ Create base diagrams array, matching images to titles
+const baseDiagrams: Omit<Diagram, "id">[] = sortedImageFiles.map((img, idx) => ({
+  title: diagramTitles[idx] ?? `Diagram ${idx + 1}`, // fallback title if missing
+  image: img,
   link: "#", // placeholder for PDF
 }));
 
