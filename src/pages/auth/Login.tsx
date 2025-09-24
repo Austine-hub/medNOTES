@@ -1,33 +1,38 @@
 // src/pages/auth/Login.tsx
-import React, { useState } from 'react';
-import styles from './Login.module.css';
-import logoImg from '../../assets/logo.png'; // ✅ Import your logo image
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../store/authStore";
+import styles from "./Login.module.css";
+import logoImg from "../../assets/logo.png";
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSubmit = () => {
-    console.log('Login attempt:', { username, password, rememberMe });
-    // TODO: Replace with actual authentication logic
-  };
+  const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
 
-  const handleSignUp = () => {
-    console.log('Sign up clicked');
-    // TODO: Replace with navigation to sign up page
-  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const handleForgotPassword = () => {
-    console.log('Forgot password clicked');
-    // TODO: Replace with forgot password logic
+    if (!username || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    // ✅ Call Zustand login with rememberMe
+    login(username, rememberMe);
+
+    console.log("Logged in:", { username, rememberMe });
+    navigate("/"); // redirect after login
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.loginCard}>
-        {/* Logo Section */}
+        {/* Logo */}
         <div className={styles.logoSection}>
           <img src={logoImg} alt="Logo" className={styles.logoImage} />
           <h1 className={styles.welcomeTitle}>Hi, welcome back</h1>
@@ -36,8 +41,8 @@ const Login: React.FC = () => {
           </p>
         </div>
 
-        {/* Login Form */}
-        <div className={styles.formContainer}>
+        {/* Form */}
+        <form onSubmit={handleSubmit} className={styles.formContainer}>
           <div className={styles.formGroup}>
             <label htmlFor="username" className={styles.label}>
               Username
@@ -58,7 +63,7 @@ const Login: React.FC = () => {
             </label>
             <div className={styles.passwordWrapper}>
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -69,9 +74,9 @@ const Login: React.FC = () => {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className={styles.passwordToggle}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
-                {showPassword ? '🙈' : '👁️'}
+                {showPassword ? "🙈" : "👁️"}
               </button>
             </div>
           </div>
@@ -88,27 +93,24 @@ const Login: React.FC = () => {
             </label>
             <button
               type="button"
-              onClick={handleForgotPassword}
+              onClick={() => navigate("/reset-password")}
               className={styles.forgotPassword}
             >
               Forgot Password?
             </button>
           </div>
 
-          <button
-            onClick={handleSubmit}
-            className={styles.signInButton}
-          >
+          <button type="submit" className={styles.signInButton}>
             Sign In
           </button>
-        </div>
+        </form>
 
-        {/* Sign Up Link */}
+        {/* Sign Up */}
         <div className={styles.signUpSection}>
           <p className={styles.signUpText}>
-            Don't have an account?{' '}
-            <button 
-              onClick={handleSignUp}
+            Don&apos;t have an account?{" "}
+            <button
+              onClick={() => navigate("/create-account")}
               className={styles.signUpLink}
             >
               Sign Up
@@ -118,7 +120,7 @@ const Login: React.FC = () => {
 
         {/* Copyright */}
         <div className={styles.copyright}>
-          <p>Copyright © 2025- ABNO Softwares International</p>
+          <p>Copyright © 2025 - ABNO Softwares International</p>
         </div>
       </div>
     </div>
@@ -126,3 +128,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+
