@@ -1,14 +1,14 @@
 // src/data/pharmaDiagrams.ts
-import DiabeticDrugs from "../assets/photos/Diabetic-drugs.png";
-import Antiepileptic1 from "../assets/photos/Antiepileptic-drugs-1.png";
-import Antiepileptic2 from "../assets/photos/Antiepileptic-drugs-2.png";
-import Antiepileptic3 from "../assets/photos/Antiepileptic-drugs-3.png";
-import NSAIDS from "../assets/photos/NSAIDS.png";
-import DrugsTB from "../assets/photos/Drugs-for-TB.png";
-import DrugsParkinsons from "../assets/photos/Drugs-for-Parkinsons.png";
-import Hypertensive1 from "../assets/photos/Hypertensive-drugs-1.png";
-import Hypertensive2 from "../assets/photos/Hypertensive-drugs-2.png";
-import Hypertensive3 from "../assets/photos/Drugs-for-Alzheimer.png";
+import diabeticDrugs from "../assets/photos/diabetic-drugs.png";
+import antiepileptic1 from "../assets/photos/antiepileptic-drugs-1.png";
+import antiepileptic2 from "../assets/photos/antiepileptic-drugs-2.png";
+import antiepileptic3 from "../assets/photos/antiepileptic-drugs-3.png";
+import nsaids from "../assets/photos/nsaids.png";
+import drugsTb from "../assets/photos/drugs-for-tb.png";
+import drugsParkinsons from "../assets/photos/drugs-for-parkinsons.png";
+import hypertensive1 from "../assets/photos/hypertensive-drugs-1.png";
+import hypertensive2 from "../assets/photos/hypertensive-drugs-2.png";
+import alzheimer from "../assets/photos/drugs-for-alzheimer.png";
 
 export interface Diagram {
   id: number;
@@ -21,53 +21,53 @@ export interface Diagram {
 const baseDiagrams: Omit<Diagram, "id">[] = [
   {
     title: "Mechanism of Diabetic Drugs",
-    image: DiabeticDrugs,
-    link: "/downloads/Diabetic-drugs.pdf",
+    image: diabeticDrugs,
+    link: "/downloads/diabetic-drugs.pdf",
   },
   {
     title: "Antiepileptic Drugs 1",
-    image: Antiepileptic1,
-    link: "/downloads/Antiepileptic-drugs-1.pdf",
+    image: antiepileptic1,
+    link: "/downloads/antiepileptic-drugs-1.pdf",
   },
   {
-    title: "NSAIDS",
-    image: NSAIDS,
-    link: "/downloads/NSAIDS.pdf",
+    title: "NSAIDs",
+    image: nsaids,
+    link: "/downloads/nsaids.pdf",
   },
   {
     title: "Drugs for TB",
-    image: DrugsTB,
-    link: "/downloads/Drugs-for-TB.pdf",
+    image: drugsTb,
+    link: "/downloads/drugs-for-tb.pdf",
   },
   {
     title: "Antiepileptic Drugs 2",
-    image: Antiepileptic2,
-    link: "/downloads/Antiepileptic-drugs-2.pdf",
+    image: antiepileptic2,
+    link: "/downloads/antiepileptic-drugs-2.pdf",
   },
   {
     title: "Antiepileptic Drugs 3",
-    image: Antiepileptic3,
-    link: "/downloads/Antiepileptic-drugs-3.pdf",
+    image: antiepileptic3,
+    link: "/downloads/antiepileptic-drugs-3.pdf",
   },
   {
     title: "Drugs for Parkinson's",
-    image: DrugsParkinsons,
-    link: "/downloads/Drugs-for-Parkinsons.pdf",
+    image: drugsParkinsons,
+    link: "/downloads/drugs-for-parkinsons.pdf",
   },
   {
     title: "Hypertensive Drugs 1",
-    image: Hypertensive1,
-    link: "/downloads/Hypertensive-drugs-1.pdf",
+    image: hypertensive1,
+    link: "/downloads/hypertensive-drugs-1.pdf",
   },
   {
     title: "Hypertensive Drugs 2",
-    image: Hypertensive2,
-    link: "/downloads/Hypertensive-drugs-2.pdf",
+    image: hypertensive2,
+    link: "/downloads/hypertensive-drugs-2.pdf",
   },
   {
-    title: "Hypertensive Drugs 3",
-    image: Hypertensive3,
-    link: "/downloads/Hypertensive-drugs-3.pdf",
+    title: "Drugs for Alzheimer",
+    image: alzheimer,
+    link: "/downloads/drugs-for-alzheimer.pdf",
   },
 ];
 
