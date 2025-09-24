@@ -18,16 +18,16 @@ interface HeaderProps {
   'aria-label'?: string;
 }
 
-// Default props as constants for better performance
+// Default props
 const DEFAULT_PROPS = {
   title: "Welcome to Your Personalized Medical Studies",
   leftLogo: {
-    src: "/src/assets/photos/smile2.png",
+    src: "/smile1.png", // ✅ correct path (no /public)
     alt: "Med Student",
   },
   rightLogo: {
-    src: "/src/assets/photos/smile1.png", 
-    alt: "MedStudent",
+    src: "/smile2.png", // ✅ correct path (no /public)
+    alt: "Med Student",
   },
 } as const;
 

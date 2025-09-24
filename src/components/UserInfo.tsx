@@ -5,12 +5,16 @@ import styles from "./UserInfo.module.css";
 import { useAuthStore } from "../store/authStore";
 
 const UserInfo: React.FC = () => {
-  // ✅ Pull everything from Zustand
+  // ✅ Pull state + actions from Zustand
   const { username, lastLogin, rememberMe, isAuthenticated, logout } =
     useAuthStore();
 
   if (!isAuthenticated) {
-    return <p>Not logged in</p>;
+    return (
+      <section className={styles.userInfo} role="banner" aria-label="Guest info">
+        <p className={styles.guestMessage}>Not logged in</p>
+      </section>
+    );
   }
 
   return (
@@ -23,13 +27,18 @@ const UserInfo: React.FC = () => {
       <div className={styles.userDetails}>
         <User size={16} className={styles.userIcon} aria-hidden="true" />
         <span className={styles.welcomeText}>
-          Welcome <strong>{username}</strong> •{" "}
-          {lastLogin && `Last Login: ${lastLogin}`}
-          <h4 className={styles.dashboardTitle}>
-            {new Date().toLocaleString("default", { month: "long" })}{" "}
-            {new Date().getFullYear()}
-          </h4>
+          Welcome <strong>{username}</strong>
+          {lastLogin && (
+            <>
+              {" "}
+              • <span>Last Login: {lastLogin}</span>
+            </>
+          )}
         </span>
+        <h4 className={styles.dashboardTitle}>
+          {new Date().toLocaleString("default", { month: "long" })}{" "}
+          {new Date().getFullYear()}
+        </h4>
       </div>
 
       {/* Remember Me status */}
@@ -48,4 +57,3 @@ const UserInfo: React.FC = () => {
 };
 
 export default UserInfo;
-

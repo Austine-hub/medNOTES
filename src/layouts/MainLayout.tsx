@@ -1,3 +1,4 @@
+// src/layouts/MainLayout.tsx
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -6,7 +7,7 @@ import Footer from "../components/Footer";
 
 import styles from "./MainLayout.module.css";
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
     <div className={styles.layout}>
       {/* Global layout */}
@@ -19,12 +20,8 @@ const MainLayout = () => {
       </nav>
 
       <div className={styles.userInfoWrapper}>
-        {/* ✅ Pass safe placeholder props so TS stops complaining */}
-        <UserInfo
-          username="Guest"
-          userId="0000"
-          lastLogin={new Date().toLocaleString()} // human-readable date
-        />
+        {/* ✅ Zustand handles user data — no props needed */}
+        <UserInfo />
       </div>
 
       {/* Dynamic routed content */}
@@ -40,3 +37,6 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
+
+

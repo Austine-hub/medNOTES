@@ -1,11 +1,21 @@
+// src/components/Navbar.tsx
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
-  // Kept for future extension, but not currently used
   reportMonth?: string;
   reportYear?: number;
+}
+
+/* ────────────────────────────────
+   📌 Define Navigation Item Type
+──────────────────────────────── */
+interface NavItem {
+  path: string;
+  label: string;
+  id: string;
+  external?: boolean; // ✅ optional for external links
 }
 
 const Navbar: React.FC<NavbarProps> = () => {
@@ -28,7 +38,10 @@ const Navbar: React.FC<NavbarProps> = () => {
   ──────────────────────────────── */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -63,16 +76,21 @@ const Navbar: React.FC<NavbarProps> = () => {
   );
 
   /* ────────────────────────────────
-     📌 Navigation Items
+     📌 Navigation Items (Typed!)
   ──────────────────────────────── */
-  const navigationItems = [
+  const navigationItems: NavItem[] = [
     { path: "/", label: "Home", id: "home" },
     { path: "/accounts", label: "Resources", id: "accounts" },
     { path: "/pharmco", label: "Pharmacology", id: "pharmco" },
     { path: "/about", label: "Get Involved", id: "about" },
     { path: "/blog", label: "Blog", id: "blog" },
-    { path: "/join", label: "Join Us", id: "join", external: true }, // ✅ Opens in new tab
-  ] as const;
+    {
+      path: "https://example.com",
+      label: "Join Us",
+      id: "join",
+      external: true, // ✅ external link
+    },
+  ];
 
   return (
     <nav
@@ -102,13 +120,15 @@ const Navbar: React.FC<NavbarProps> = () => {
       ──────────────── */}
       <ul
         id="main-navigation"
-        className={`${styles.navList} ${isMobileMenuOpen ? styles.navListOpen : ""}`}
+        className={`${styles.navList} ${
+          isMobileMenuOpen ? styles.navListOpen : ""
+        }`}
         role="menubar"
       >
         {navigationItems.map(({ path, label, id, external }) => (
           <li key={id} role="none">
             {external ? (
-              // 🌐 External link (opens in new tab)
+              // 🌐 External link
               <a
                 href={path}
                 target="_blank"
@@ -121,7 +141,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 {label}
               </a>
             ) : (
-              // 🔗 Internal link (SPA navigation)
+              // 🔗 Internal SPA link
               <Link
                 to={path}
                 className={`${styles.navLink} ${
