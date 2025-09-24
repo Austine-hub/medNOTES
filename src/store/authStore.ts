@@ -1,46 +1,61 @@
 // src/store/authStore.ts
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
 interface AuthState {
   username: string | null;
-  lastLogin: string | null;
   isAuthenticated: boolean;
+  lastLogin: string | null;
   rememberMe: boolean;
-  login: (username: string, rememberMe: boolean) => void;
+  login: (username: string, rememberMe?: boolean) => void;
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set) => ({
-      username: null,
-      lastLogin: null,
-      isAuthenticated: false,
-      rememberMe: false,
-      login: (username, rememberMe) =>
-        set({
-          username,
-          lastLogin: new Date().toLocaleString(),
-          isAuthenticated: true,
-          rememberMe,
-        }),
-      logout: () =>
-        set({
-          username: null,
-          lastLogin: null,
-          isAuthenticated: false,
-          rememberMe: false,
-        }),
-    }),
-    {
-      name: "auth-storage",
-      // ✅ only persist if rememberMe is true
-      partialize: (state) =>
-        state.rememberMe
-          ? { username: state.username, lastLogin: state.lastLogin, isAuthenticated: state.isAuthenticated, rememberMe: state.rememberMe }
-          : {},
+export const useAuthStore = create<AuthState>((set) => ({
+  username: null,
+  isAuthenticated: false,
+  lastLogin: null,
+  rememberMe: false,
+
+  // ✅ Login
+  login: (username, rememberMe = false) => {
+    const now = new Date().toLocaleString(); // e.g., "9/24/2025, 12:15:30 PM"
+    set({
+      username,
+      isAuthenticated: true,
+      lastLogin: now,
+      rememberMe,
+    });
+
+    // Optional: persist to localStorage if rememberMe is true
+    if (rememberMe) {
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ username, lastLogin: now, rememberMe })
+      );
     }
-  )
-);
+  },
+
+  // ✅ Logout
+  logout: () => {
+    set({
+      username: null,
+      isAuthenticated: false,
+      lastLogin: null,
+      rememberMe: false,
+    });
+    localStorage.removeItem("auth");
+  },
+}));
+
+// ✅ Auto-load saved session on page refresh
+const saved = localStorage.getItem("auth");
+if (saved) {
+  const parsed = JSON.parse(saved);
+  useAuthStore.setState({
+    username: parsed.username,
+    isAuthenticated: true,
+    lastLogin: parsed.lastLogin,
+    rememberMe: parsed.rememberMe,
+  });
+}
 
