@@ -30,7 +30,7 @@ const baseDiagrams: Omit<Diagram, "id">[] = [
     link: "/downloads/Antiepileptic-drugs-1.pdf",
   },
   {
-    title: "NSAIDs",
+    title: "NSAIDS",
     image: NSAIDS,
     link: "/downloads/NSAIDS.pdf",
   },
